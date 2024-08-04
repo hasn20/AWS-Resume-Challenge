@@ -1,11 +1,5 @@
-// Back to top button functionality
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    var backToTopButton = document.querySelector(".back-to-top");
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        backToTopButton.style.display = "block";
-    } else {
-        backToTopButton.style.display = "none";
-    }
-}
+document.addEventListener('DOMContentLoaded', async () => {
+    const response = await fetch('https://7lttvfsyu2.execute-api.eu-north-1.amazonaws.com/prod/prod/counter');
+    const data = await response.json();
+    document.getElementById('visitorCount').textContent = data.count;
+});
